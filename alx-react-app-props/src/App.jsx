@@ -1,5 +1,5 @@
 import './App.css'
-import UserContext from './contexts/UserContext';
+import UserContext from './components/UserContext';
 import ProfilePage from './ProfilePage';
 
 function App() {
