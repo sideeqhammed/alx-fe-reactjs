@@ -5,11 +5,11 @@ const AddRecipeForm = () => {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
-  const addRecipie = useRecipeStore((state) => (state.addRecipie))
+  const addRecipe = useRecipeStore((state) => (state.addRecipe))
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    addRecipie({id: Date.now(), title, description})
+    addRecipe({id: Date.now(), title, description})
     setTitle('')
     setDescription('')
   }

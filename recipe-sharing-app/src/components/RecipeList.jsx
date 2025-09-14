@@ -2,14 +2,14 @@ import useRecipeStore from "./recipeStore"
 
 const RecipeList = () => {
 
-  const recipies = useRecipeStore((state) => state.recipies)
+  const recipes = useRecipeStore((state) => state.recipes)
 
   return (
     <div>
-        {recipies.map(recipie => {
-          <div key={recipie.id}>
-            <h1>{recipie.title}</h1>
-            <p>{recipie.description}</p>
+        {recipes.map(recipe => {
+          <div key={recipe.id}>
+            <h1>{recipe.title}</h1>
+            <p>{recipe.description}</p>
           </div>
         })}
     </div>
