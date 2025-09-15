@@ -4,7 +4,7 @@ import { useState } from "react";
 const RecipeDetails = ({ recipeId }) => {
   const [id, setId] = useState('')
   const searchRecipe = useRecipeStore(state => state.searchRecipe);
-  const recipeResult = useRecipeStore(state => state.searchedRecipe)
+  const recipe = useRecipeStore(state => state.searchedRecipe)
 
   const handleFind = () => {
     searchRecipe(id)
@@ -14,11 +14,11 @@ const RecipeDetails = ({ recipeId }) => {
   return (
     <div>
       <h2>Find recipe</h2>
-      {recipeResult ? (
-        <div key={recipeResult.id}>
-          <h3>Recipe Id: {recipeResult.id}</h3>
-          <h3>{recipeResult.title}</h3>
-          <p>{recipeResult.description}</p>
+      {recipe ? (
+        <div key={recipe.id}>
+          <h3>Recipe Id: {recipe.id}</h3>
+          <h3>{recipe.title}</h3>
+          <p>{recipe.description}</p>
         </div>
       ): (
         <p>Recipe not found</p>
