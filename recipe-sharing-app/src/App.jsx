@@ -8,6 +8,7 @@ import RecipeDetails from './components/RecipeDetails'
 import EditRecipeForm from './components/EditRecipeForm'
 import SearchBar from './components/SearchBar'
 import FavoritesList from './components/FavoritesList'
+import RecommendationsList from './components/RecommendationsList'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/favorites' element = {<FavoritesList />} />
           <Route path='/search' element = {<SearchBar />} />
           <Route path='/details' element = {<RecipeDetails />} />
+          <Route path='/recommendations' element = {<RecommendationsList />} />
           <Route path='/edit' element = {<EditRecipeForm />} />
           <Route path='/delete' element = {<DeleteRecipeButton />} />
         </Routes>
