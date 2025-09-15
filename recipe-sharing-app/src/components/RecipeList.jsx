@@ -4,6 +4,8 @@ const RecipeList = () => {
 
   const recipes = useRecipeStore((state) => state.recipes)
 
+  console.log({...recipes})
+
   return (
     <div style={{border: '1px solid white', marginBottom: '20px'}}>
       <h2 style={{borderBottom: 'solid white'}}>Recipie List</h2>

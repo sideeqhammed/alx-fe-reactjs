@@ -9,7 +9,7 @@ const AddRecipeForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    addRecipe({id: Date.now(), title, description})
+    addRecipe({id: String(Date.now()), title, description})
     setTitle('')
     setDescription('')
   }
@@ -32,7 +32,7 @@ const AddRecipeForm = () => {
         style={{display: 'block', padding: '10px', marginBottom: '10px'}}
       >
       </textarea>
-      <button type="submit">Submit</button>
+      <button type="submit">Add Recipe</button>
     </form>
   )
 }

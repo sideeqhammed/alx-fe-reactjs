@@ -3,12 +3,12 @@ import { useState } from "react";
 
 const DeleteRecipeButton = () => {
 
-  const [title, setTitle] = useState('')
+  const [id, setId] = useState('')
   const deleteRecipe = useRecipeStore(state => state.deleteRecipe)
 
   const handleDelete = () => {
-    deleteRecipe(title)
-    setTitle('')
+    deleteRecipe(id)
+    setId('')
   }
 
   return (
@@ -16,9 +16,9 @@ const DeleteRecipeButton = () => {
       <h2>Delete recipe</h2>
       <input style={{padding: '10px'}}
         type="text"
-        value={title}
-        name="title"
-        onChange={(e) => setTitle(e.target.value)}
+        value={id}
+        name="id"
+        onChange={(e) => setId(e.target.value)}
         placeholder="Recipe to remove"
       />
       <button onClick={handleDelete}>Delete</button>

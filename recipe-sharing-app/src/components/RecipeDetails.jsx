@@ -3,20 +3,26 @@ import { useState } from "react";
 
 const RecipeDetails = ({ recipeId }) => {
   const [id, setId] = useState('')
-  const recipe = useRecipeStore(state =>
-    state.recipes.find(recipe => recipe.id === recipeId)
-  );
+  const searchRecipe = useRecipeStore(state => state.searchRecipe);
+  const recipeResult = useRecipeStore(state => state.searchedRecipe)
 
   const handleFind = () => {
-    recipe(id)
+    searchRecipe(id)
     setId('')
   }
 
   return (
     <div>
       <h2>Find recipe</h2>
-      <h3>{recipe.title}</h3>
-      <p>{recipe.description}</p>
+      {recipeResult ? (
+        <div key={recipeResult.id}>
+          <h3>Recipe Id: {recipeResult.id}</h3>
+          <h3>{recipeResult.title}</h3>
+          <p>{recipeResult.description}</p>
+        </div>
+      ): (
+        <p>Recipe not found</p>
+      )}
       <input style={{padding: '10px'}}
         type="text"
         value={id}

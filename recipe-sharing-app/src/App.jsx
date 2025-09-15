@@ -3,6 +3,7 @@ import RecipeList from './components/RecipeList'
 import AddRecipeForm from './components/AddRecipeForm'
 import DeleteRecipeButton from './components/DeleteRecipeButton'
 import RecipeDetails from './components/RecipeDetails'
+import EditRecipeForm from './components/EditRecipeForm'
 
 function App() {
 
@@ -10,8 +11,8 @@ function App() {
     <>
       <RecipeList />
       <AddRecipeForm />
-      
       <RecipeDetails />
+      <EditRecipeForm />
       <DeleteRecipeButton />
 
     </>
