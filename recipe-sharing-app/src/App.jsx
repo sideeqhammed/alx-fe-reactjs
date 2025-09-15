@@ -7,6 +7,7 @@ import DeleteRecipeButton from './components/DeleteRecipeButton'
 import RecipeDetails from './components/RecipeDetails'
 import EditRecipeForm from './components/EditRecipeForm'
 import SearchBar from './components/SearchBar'
+import FavoritesList from './components/FavoritesList'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element = {<RecipeList />} />
           <Route path='/add' element = {<AddRecipeForm />} />
+          <Route path='/favorites' element = {<FavoritesList />} />
           <Route path='/search' element = {<SearchBar />} />
           <Route path='/details' element = {<RecipeDetails />} />
           <Route path='/edit' element = {<EditRecipeForm />} />
