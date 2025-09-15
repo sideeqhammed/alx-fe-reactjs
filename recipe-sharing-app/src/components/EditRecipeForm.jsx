@@ -8,8 +8,8 @@ const EditRecipeForm = () => {
   const [description, setDescription] = useState('')
   const updateRecipe = useRecipeStore((state) => (state.updateRecipe))
 
-  const handleUpdate = (e) => {
-    e.preventDefault()
+  const handleUpdate = (event) => {
+    event.preventDefault()
     updateRecipe(id, title, description)
     setId('')
     setTitle('')
