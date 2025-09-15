@@ -1,5 +1,5 @@
-import React from 'react';
 import useRecipeStore from './recipeStore';
+import { Link } from 'react-router-dom';
 
 const SearchBar = () => {
 
@@ -28,7 +28,9 @@ const SearchBar = () => {
         placeholder="Search recipes..."
         onChange={(e) => handleSearch(e.target.value)}
       />
+      <Link to={'/'}><button>Recipe List</button></Link>
     </div>
+
   );
 };
 
