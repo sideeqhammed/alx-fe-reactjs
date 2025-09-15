@@ -13,7 +13,7 @@ const RecipeDetails = ({ recipeId }) => {
 
   return (
     <div>
-      <h2>Find recipe</h2>
+      <h2>Search recipe</h2>
       {recipe ? (
         <div key={recipe.id}>
           <h3>Recipe Id: {recipe.id}</h3>
@@ -28,7 +28,7 @@ const RecipeDetails = ({ recipeId }) => {
         value={id}
         name="id"
         onChange={(e) => setId(e.target.value)}
-        placeholder="Recipe to find"
+        placeholder="Recipe id"
       />
       <button onClick={handleFind}>Search</button>
     </div>

@@ -1,14 +1,17 @@
 import useRecipeStore from "./recipeStore";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const DeleteRecipeButton = () => {
 
+  const navigate = useNavigate()
   const [id, setId] = useState('')
   const deleteRecipe = useRecipeStore(state => state.deleteRecipe)
 
   const handleDelete = () => {
     deleteRecipe(id)
     setId('')
+    navigate('/')
   }
 
   return (
@@ -19,7 +22,7 @@ const DeleteRecipeButton = () => {
         value={id}
         name="id"
         onChange={(e) => setId(e.target.value)}
-        placeholder="Recipe to remove"
+        placeholder="Recipe id"
       />
       <button onClick={handleDelete}>Delete</button>
     </div>

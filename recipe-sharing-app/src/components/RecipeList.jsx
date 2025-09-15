@@ -16,6 +16,7 @@ const RecipeList = () => {
           <p>{recipe.description}</p>
         </div>
       ))}
+
     </div>
   )
 }

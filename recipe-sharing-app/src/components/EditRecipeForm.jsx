@@ -18,7 +18,7 @@ const EditRecipeForm = () => {
 
   return (
     <form onSubmit={handleUpdate}>
-      <h2>Update recipe</h2>
+      <h2>Edit recipe</h2>
       <input 
         type="text"
         value={id}
