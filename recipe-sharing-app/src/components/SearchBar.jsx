@@ -14,6 +14,14 @@ const SearchBar = () => {
 
   return (
     <div>
+      
+      <input
+        type="text"
+        size={50}
+        placeholder="Search recipes..."
+        onChange={(e) => handleSearch(e.target.value)}
+      />
+
       {filteredRecipes ? (
         filteredRecipes.map(recipe => (
           <div key={Date.now()}>
@@ -22,15 +30,10 @@ const SearchBar = () => {
           </div>
         ))
       ) : ''}
-      <input
-        type="text"
-        size={50}
-        placeholder="Search recipes..."
-        onChange={(e) => handleSearch(e.target.value)}
-      />
-      <Link to={'/'}><button>Recipe List</button></Link>
-    </div>
 
+      <Link to={'/'}><button>Recipe List</button></Link>
+
+    </div>
   );
 };
 

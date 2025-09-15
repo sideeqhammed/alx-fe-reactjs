@@ -13,7 +13,7 @@ const RecipeDetails = ({ recipeId }) => {
 
   return (
     <div>
-      <h2>Search recipe</h2>
+      <h2>Search recipe by id</h2>
       {recipe ? (
         <div key={recipe.id}>
           <h3>Recipe Id: {recipe.id}</h3>

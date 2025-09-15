@@ -7,8 +7,8 @@ function Navbar () {
       <div>
         <Link to='/' style={{padding: '0 10px'}}>Recipes</Link>
         <Link to='/add' style={{padding: '0 10px'}}>Add Recipe</Link>
-        <Link to={'/search'} style={{padding: '0 10px'}}>Search Recipe</Link>
-        <Link to={'/details'} style={{padding: '0 10px'}}>Details Recipe</Link>
+        {/* <Link to={'/search'} style={{padding: '0 10px'}}>Search Recipe</Link> */}
+        <Link to={'/details'} style={{padding: '0 10px'}}>Search Recipe</Link>
         <Link to={'/edit'} style={{padding: '0 10px'}}>Edit Recipe</Link>
         <Link to={'/delete'} style={{padding: '0 10px'}}>Delete Recipe</Link>
       </div>
