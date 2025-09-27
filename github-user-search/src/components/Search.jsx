@@ -16,7 +16,7 @@ const SearchUser = () => {
       setUser(result)
       setError(null)
     } catch (error) {
-      setError(error)
+      setError("Looks like we cant find the user")
       setUser(null)
     } finally {setLoading(false)}
   }
@@ -31,7 +31,7 @@ const SearchUser = () => {
           onChange={e => setUsername(e.target.value)}
           style={{display: 'flex', padding: '10px', margin: '20px auto'}}
         />
-        <button type="submit">Search</button>
+        <button type="submit" style={{marginBottom: '30px'}}>Search</button>
       </form>
 
       {loading ? <p>Loading...</p> : ''}
@@ -39,12 +39,14 @@ const SearchUser = () => {
         <div>
           <h2 style={{textAlign: 'left'}}>User found:</h2>
           <hr></hr>
-          <h2>{user.name}</h2>
+          <h2>{user.login}</h2>
+          <p>{user.img}</p>
+          <p>{user.avatar_url}</p>
           <p>{user.url}</p>
           <p>{user.bio}</p>
         </div>
       
-      : ''}
+      : error}
 
       {/* <Link to={'/'}><button>Recipe List</button></Link> */}
     </div>
