@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { fetchUserData } from "../services/githubService"
+import { SearchUsers } from "../services/githubService"
 
 const SearchUser = () => {
 
@@ -7,6 +8,10 @@ const SearchUser = () => {
   const [user, setUser] = useState(null)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
+
+  const [query, setQuery] = useState('')
+  const [users, setUsers] = useState([])
+
 
   const handleChange = async (e) => {
     e.preventDefault()
@@ -21,6 +26,22 @@ const SearchUser = () => {
     } finally {setLoading(false)}
   }
 
+  const haandleSearch = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    setUsers([])
+    setError(null)
+    try {
+      const results = await SearchUsers(query)
+      setUsers(results.items)
+    } catch (error) {
+      setError(error)
+      setError('Looks like we cant find the user')
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return(
     <div>
       <form onSubmit={handleChange}>
@@ -29,26 +50,47 @@ const SearchUser = () => {
           size={50}
           placeholder="Search user..."
           onChange={e => setUsername(e.target.value)}
-          style={{display: 'flex', padding: '10px', margin: '20px auto'}}
+          style={{display: 'flex', padding: '10px', margin: '20px auto', borderColor : 'white'}}
+        />
+        <button type="submit" style={{marginBottom: '30px'}}>Search</button>
+      </form>
+
+      <form onSubmit={haandleSearch}>
+        <input
+          type="text"
+          size={50}
+          placeholder="Search using other properties..."
+          onChange={(e) => setQuery(e.target.value)}
+          className="flex p-3 my-5 mx-auto border-white"
         />
         <button type="submit" style={{marginBottom: '30px'}}>Search</button>
       </form>
 
       {loading ? <p>Loading...</p> : ''}
+
       {user ?
         <div>
           <h2 style={{textAlign: 'left'}}>User found:</h2>
-          <hr></hr>
+          <hr />
           <h2>{user.login}</h2>
-          <p>{user.img}</p>
-          <p>{user.avatar_url}</p>
-          <p>{user.url}</p>
-          <p>{user.bio}</p>
+          <img src={user.avatar_url} alt={`${user.login}'s avatar`} width="100" />
+          <p><a href={user.html_url} target="_blank" rel="noopener noreferrer">{user.html_url}</a></p>
         </div>
-      
-      : error}
+        : error
+      }
 
-      {/* <Link to={'/'}><button>Recipe List</button></Link> */}
+      {users && users.length > 0 ? 
+        users.map((user) => (
+          <div key={user.id}>
+            <h2 style={{textAlign: 'left'}}>Users found:</h2>
+            <hr />
+            <h2>{user.login}</h2>
+            <img src={user.avatar_url} alt={`${user.login}'s avatar`} width="100" />
+            <p><a href={user.html_url} target="_blank" rel="noopener noreferrer">{user.html_url}</a></p>
+          </div>
+        ))
+        : error
+      }
     </div>
   )
 }
