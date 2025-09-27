@@ -87,6 +87,8 @@ const SearchUser = () => {
             <h2>{user.login}</h2>
             <img src={user.avatar_url} alt={`${user.login}'s avatar`} width="100" />
             <p><a href={user.html_url} target="_blank" rel="noopener noreferrer">{user.html_url}</a></p>
+            <p>{user.location}</p>
+            <p>{user.minRepos}</p>
           </div>
         ))
         : error
