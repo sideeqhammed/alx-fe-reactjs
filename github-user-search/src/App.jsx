@@ -3,10 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Notes from './components/Notes'
-import AddNote from './components/AddNote'
-import Search from './components/Search'
+// import Navbar from './components/Navbar'
+// import Notes from './components/Notes'
+import SearchUser from './components/Search'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,11 +13,10 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <Navbar />
       <Routes>
-        <Route path='/' element = {<Notes />} />
-        <Route path='/add' element = {<AddNote />} />
-        <Route path='/search' element = {<Search />} />
+        <Route path='/' element = {<SearchUser />} />
+        {/* <Route path='/add' element = {<AddNote />} /> */}
+        {/* <Route path='/search' element = {<SearchUser />} /> */}
       </Routes>
     </BrowserRouter>
     </>

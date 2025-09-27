@@ -1,33 +1,49 @@
-import useNotesStore from "../store/NotesStore";
-import { Link } from "react-router-dom";
+import { useState } from "react"
+import { fetchUserData } from "../services/githubService"
 
-function Search () {
-  const results = useNotesStore(state => state.notesResult)
-  const searchWord = useNotesStore(state => state.setSearchTerm)
-  const searchResult = useNotesStore(state => state.searchNotes)
+const SearchUser = () => {
 
-  const handleChange = (e) => {
-    searchWord(e)
-    searchResult()
+  const [username, setUsername] = useState('')
+  const [user, setUser] = useState(null)
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  const handleChange = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    try {
+      const result = await fetchUserData(username)
+      setUser(result)
+      setError(null)
+    } catch (error) {
+      setError(error)
+      setUser(null)
+    } finally {setLoading(false)}
   }
 
   return(
     <div>
-      <input 
-        type="text"
-        size={50}
-        placeholder="Search notes..."
-        onChange={e => handleChange(e.target.value)}
-        style={{display: 'flex', padding: '10px', margin: '20px auto'}}
-      />
-      {results ? (results.map(result => (
+      <form onSubmit={handleChange}>
+        <input 
+          type="text"
+          size={50}
+          placeholder="Search user..."
+          onChange={e => setUsername(e.target.value)}
+          style={{display: 'flex', padding: '10px', margin: '20px auto'}}
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      {loading ? <p>Loading...</p> : ''}
+      {user ?
         <div>
-          <h2 style={{textAlign: 'left'}}>Notes found:</h2>
+          <h2 style={{textAlign: 'left'}}>User found:</h2>
           <hr></hr>
-          <h2>{result.title}</h2>
-          <p>{result.content}</p>
-        </div>)
-      ))
+          <h2>{user.name}</h2>
+          <p>{user.url}</p>
+          <p>{user.bio}</p>
+        </div>
+      
       : ''}
 
       {/* <Link to={'/'}><button>Recipe List</button></Link> */}
@@ -35,4 +51,4 @@ function Search () {
   )
 }
 
-export default Search
+export default SearchUser
