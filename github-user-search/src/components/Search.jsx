@@ -1,41 +1,42 @@
 import { useState } from "react"
-import { fetchUserData } from "../services/githubService"
+// import { fetchUserData } from "../services/githubService"
 import { SearchUsers } from "../services/githubService"
 
 const SearchUser = () => {
 
   const [username, setUsername] = useState('')
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  const [query, setQuery] = useState('')
+  const [location, setLocation] = useState('')
+  const [minRepos, setMinRepos] = useState(0)
   const [users, setUsers] = useState([])
 
 
-  const handleChange = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    try {
-      const result = await fetchUserData(username)
-      setUser(result)
-      setError(null)
-    } catch (error) {
-      setError("Looks like we cant find the user")
-      setUser(null)
-    } finally {setLoading(false)}
-  }
+  // const handleChange = async (e) => {
+  //   e.preventDefault()
+  //   setLoading(true)
+  //   try {
+  //     const result = await fetchUserData(username)
+  //     setUser(result)
+  //     setError(null)
+  //   } catch (error) {
+  //     setError("Looks like we cant find the user")
+  //     setUser(null)
+  //   } finally {setLoading(false)}
+  // }
 
-  const haandleSearch = async (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault()
     setLoading(true)
     setUsers([])
     setError(null)
     try {
-      const results = await SearchUsers(query)
-      setUsers(results.items)
+      const results = await SearchUsers({username, location, minRepos})
+      setUsers(results)
     } catch (error) {
-      setError(error)
+      console.error(`Error: ${error}`)
       setError('Looks like we cant find the user')
     } finally {
       setLoading(false)
@@ -44,7 +45,7 @@ const SearchUser = () => {
 
   return(
     <div>
-      <form onSubmit={handleChange}>
+      {/* <form onSubmit={handleChange}>
         <input 
           type="text"
           size={50}
@@ -53,22 +54,35 @@ const SearchUser = () => {
           style={{display: 'flex', padding: '10px', margin: '20px auto', borderColor : 'white'}}
         />
         <button type="submit" style={{marginBottom: '30px'}}>Search</button>
-      </form>
+      </form> */}
 
-      <form onSubmit={haandleSearch}>
+      <form onSubmit={handleSearch}>
+        <input 
+          type="text"
+          size={50}
+          placeholder="Search user..."
+          onChange={e => setUsername(e.target.value)}
+          style={{display: 'flex', padding: '10px', margin: '20px auto', borderColor : 'white'}}
+        />
         <input
           type="text"
           size={50}
-          placeholder="Search using other properties..."
-          onChange={(e) => setQuery(e.target.value)}
-          className="flex p-3 my-5 mx-auto border-white"
+          placeholder="Search using location..."
+          onChange={(e) => setLocation(e.target.value)}
+          className="flex p-3 my-5 border-white"
+        />
+        <input
+          type="number"
+          placeholder="Search using minimum repository..."
+          onChange={(e) => setMinRepos(e.target.value)}
+          className="flex p-3 my-5 border-white"
         />
         <button type="submit" style={{marginBottom: '30px'}}>Search</button>
       </form>
 
       {loading ? <p>Loading...</p> : ''}
 
-      {user ?
+      {/* {user ?
         <div>
           <h2 style={{textAlign: 'left'}}>User found:</h2>
           <hr />
@@ -77,7 +91,7 @@ const SearchUser = () => {
           <p><a href={user.html_url} target="_blank" rel="noopener noreferrer">{user.html_url}</a></p>
         </div>
         : error
-      }
+      } */}
 
       {users && users.length > 0 ? 
         users.map((user) => (
