@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://www.allrecipes.com/thmb/Vg2cRidr2zcYhWGvPD8M18xM_WY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/11973-spaghetti-carbonara-ii-DDMFS-4x3-6edea51e421e4457ac0c3269f3be5157.jpg"
+    
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://www.recipetineats.com/tachyon/2018/04/Chicken-Tikka-Masala_0-SQ.jpg?resize=500%2C500"
+  },
+  {
+    "id": 3,
+    "title": "Classic Spaghetti Carbonara",
+    "summary": "A rich and creamy Roman pasta dish made with egg yolks, cured pork (guanciale or pancetta), Pecorino Romano cheese, and black pepper.",
+    "image": "https://www.google.com/search?q=https://placehold.co/600x400/FF5733/FFFFFF%3Ftext%3DCarbonara%2BImage"
+  },
+  {
+    "id": 4,
+    "title": "Quick Chicken Stir-Fry",
+    "summary": "A vibrant and fast weeknight meal featuring tender chicken strips, crisp mixed vegetables, and a savory soy-ginger sauce.",
+    "image": "https://www.google.com/search?q=https://placehold.co/600x400/33FF57/000000%3Ftext%3DStir-Fry%2BImage"
+  },
+  {
+    "id": 5,
+    "title": "Vegetarian Lentil Soup",
+    "summary": "A hearty, nutritious, and comforting soup packed with lentils, carrots, celery, and savory herbs.",
+    "image": "https://www.google.com/search?q=https://placehold.co/600x400/3357FF/FFFFFF%3Ftext%3DLentil%2BSoup%2BImage"
+  },
+  {
+    "id": 6,
+    "title": "Perfect Chocolate Chip Cookies",
+    "summary": "The quintessential American dessert. Chewy edges, soft centers, and plenty of melted chocolate chips.",
+    "image": "https://www.google.com/search?q=https://placehold.co/600x400/FFC300/000000%3Ftext%3DCookie+Image"
+  },
+  {
+    "id": 7,
+    "title": "Simple Caprese Salad",
+    "summary": "A fresh Italian salad featuring slices of mozzarella, tomatoes, and basil, seasoned with salt, and drizzled with olive oil.",
+    "image": "https://www.google.com/search?q=https://placehold.co/600x400/A3E4D7/000000%3Ftext%3DCaprese+Image"
+  },
+  {
+    "id": 8,
+    "title": "Fluffy Blueberry Pancakes",
+    "summary": "Classic buttermilk pancakes studded with fresh blueberries.",
+    "image": "https://www.google.com/search?q=https://placehold.co/600x400/9B59B6/FFFFFF%3Ftext%3DPancake+Image"
+  }
+]
