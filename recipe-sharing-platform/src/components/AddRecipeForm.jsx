@@ -1,7 +1,6 @@
 function AddRecipeForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
-    
   }
   return (
     <form className="text-center" onSubmit={handleSubmit}>
