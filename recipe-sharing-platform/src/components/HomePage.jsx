@@ -11,12 +11,13 @@ function HomePage () {
   }, [])
   return(
     <div className=' text-center mx-6'>
-      <h1 className='text-4xl font-bold mx-auto my-3'>Welcome to Recipez</h1>
+      <h1 className='text-4xl font-bold mx-auto my-5'>Welcome to Recipez</h1>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 place-items-center'>
+      <Link to='/recipe/add' className='p-2 rounded-xl bg-gray-300'>Add Recipe</Link>
         {recipes.map(recipe => (
         <Link key={recipe.id} to={`/recipe/${recipe.id}`}>
           <div className='w-65 h-100 my-9 bg-gray-300 shadow-xl hover:scale-105 rounded-xl duration-500 ease-in-out' >
-            <img src={recipe.image} alt={recipe.title} className='mx-auto w-40 h-40 my-3 rounded-2xl' />
+            <img src={recipe.image} alt={recipe.title} className='mx-auto w-40 h-40 rounded-2xl block' />
             <h2 className='font-bold text-lg mt-6 mb-2 p-2'>{recipe.title}</h2>
             <p className='p-2'>{recipe.summary}</p>
           </div>
