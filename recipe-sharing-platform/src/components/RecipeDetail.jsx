@@ -25,8 +25,8 @@ function RecipeDetail () {
       <h2 className="font-bold text-2xl mx-5 my-10 ">Recipe: {recipe.title}</h2>
       <img className="mx-auto h-20 w-20" src={recipe.image} alt={recipe.title}/>
       <p className="mx-4 my-5">Detail: {recipe.summary}</p>
-      <p>Ingredients</p>
-      <p>Instructions</p>
+      <p>ingredients</p>
+      <p>instructions</p>
     </div>
   )
 }
