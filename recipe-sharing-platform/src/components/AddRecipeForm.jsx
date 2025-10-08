@@ -1,12 +1,21 @@
+import { useState } from "react"
+
 function AddRecipeForm() {
+  const [title, setTitle] = useState('')
+  const [ingredients, setIngredients] = useState('')
+  const [preparation, setPreparation] = useState('')
+  const [error, setError] = useState(false)
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (!(title && ingredients && preparation)) {setError(true)}
   }
   return (
     <form className="text-center" onSubmit={handleSubmit}>
-      <input name="recipe" type="text" placeholder="Recipe Title" className="border-1 m-3 mt-8 p-2"/>
-      <textarea name="ingredients" placeholder="Ingredients" className="border-1 mx-auto my-3 p-2 block" cols={30} rows={5}></textarea>
-      <textarea name="preparation" placeholder="Preparation" className="border-1 mx-auto my-3 p-2 block" cols={30} rows={5}></textarea>
+      <input name='title' value={title} type="text" placeholder="Recipe Title" onChange={(e) => setTitle(e.target.value)} className="border-1 m-3 mt-8 p-2"/>
+      <textarea name="ingredients" value={ingredients} placeholder="Ingredients" onChange={(e) => setIngredients(e.target.value)} className="border-1 mx-auto my-3 p-2 block" cols={30} rows={5}></textarea>
+      <textarea name="preparation" value={preparation} placeholder="Preparation" onChange={(e) => setPreparation(e.target.value)} className="border-1 mx-auto my-3 p-2 block" cols={30} rows={5}></textarea>
+      {error ? <p className="text-red-600">Recipe form not fully filled, please fill all</p> : ''}
       <button type="submit" className='border-1 px-2 py-1 rounded-xl bg-gray-300 mt-3'>Submit</button>
     </form>
   )
