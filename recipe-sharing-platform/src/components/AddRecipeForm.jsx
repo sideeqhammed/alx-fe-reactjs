@@ -11,7 +11,8 @@ function AddRecipeForm() {
     if (!(title && ingredients && preparation)) {setErrors(true)} else {setErrors(false)}
   }
   return (
-    <form className="text-center" onSubmit={handleSubmit}>
+    <form className="w-xl md:w-2xl mx-auto my-3 text-center p-5 shadow-xl rounded-xl" onSubmit={handleSubmit}>
+      <h1 className="font-bold text-2xl mt-5">Add Recipe</h1>
       <input name='title' value={title} type="text" placeholder="Recipe Title" onChange={(e) => setTitle(e.target.value)} className="border-1 m-3 mt-8 p-2"/>
       <textarea name="ingredients" value={ingredients} placeholder="Ingredients" onChange={(e) => setIngredients(e.target.value)} className="border-1 mx-auto my-3 p-2 block" cols={30} rows={5}></textarea>
       <textarea name="preparation_steps" value={preparation} placeholder="Preparation" onChange={(e) => setPreparation(e.target.value)} className="border-1 mx-auto my-3 p-2 block" cols={30} rows={5}></textarea>
