@@ -16,7 +16,7 @@ function AddRecipeForm() {
       <textarea name="ingredients" value={ingredients} placeholder="Ingredients" onChange={(e) => setIngredients(e.target.value)} className="border-1 mx-auto my-3 p-2 block" cols={30} rows={5}></textarea>
       <textarea name="preparation_steps" value={preparation} placeholder="Preparation" onChange={(e) => setPreparation(e.target.value)} className="border-1 mx-auto my-3 p-2 block" cols={30} rows={5}></textarea>
       {errors ? <p className="text-red-600">Recipe form not fully filled, please fill all</p> : ''}
-      <button type="submit" className='border-1 px-2 py-1 rounded-xl bg-gray-300 mt-3'>Validate</button>
+      <button type="submit" className='border-1 px-2 py-1 rounded-xl bg-gray-300 mt-3'>validate</button>
     </form>
   )
 }
